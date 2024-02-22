@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>LightQuiz</title>
+		<script src="quiz.js"></script>
+		<style>
+			body {
+				font-family: Arial;
+				font-size: 4vh;
+				text-align: center;
+			}
+
+			header {
+				position: sticky;
+				top: 0;
+				background-color: white;
+				padding: 3vh;
+			}
+
+			#score {
+				color: green;
+			}
+
+			#fails {
+				color: red;
+			}
+
+			button {
+				font-size: 3vh;
+				width: 90vw;
+				padding: 20px;
+				border-radius: 20px;
+				border-width: 1px;
+			}
+
+			#first {
+				background-color: dodgerblue;
+				color: white;
+			}
+
+			#second {
+				background-color: slateblue;
+				color: white;
+			}
+
+			#third {
+				background-color: mediumseagreen;
+				color: white;
+			}
+
+			#fourth {
+				background-color: maroon;
+				color: white;
+			}
+
+			#proofs-btn {
+				font-size: 2.5vh;
+				width: 40vw;
+				padding: 20px;
+				background-color: dodgerblue;
+				color: white;
+			}
+
+			#theorems-btn {
+				font-size: 2.5vh;
+				width: 40vw;
+				padding: 20px;
+				background-color: yellow;
+				color: black;
+			}
+
+			#splash {
+				background-color: white;
+				transition: 0.3s;
+				position: fixed;
+				top:0;
+				width: 100vw;
+				height: 100vh;
+				z-index: 1000;
+				color: white;
+				padding-top: 20vh;
+				opacity: 0.9;
+			}
+
+			img {
+				max-width: 90%;
+				max-height: 40vh;
+				width: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="splash" style="visibility:hidden;"></div>
+
+		<span id="main">
+			<header id="main-header">
+				Score: <span id="score">0</span>&nbsp; Fails: <span id="fails">0</span> <span style="color:dodgerblue">(<span id="rem">0</span>/<span id="tot">0</span>)</span>
+				<br>
+				<div id="question"></div>
+			</header>
+			<button onclick="answer(0)" id="first"></button><br>
+			<button onclick="answer(1)" id="second"></button><br>
+			<button onclick="answer(2)" id="third"></button><br>
+			<button onclick="answer(3)" id="fourth"></button><br>
+		</span>
+	</body>
+</html>

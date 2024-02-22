@@ -1,0 +1,85 @@
+{
+	"questions": [
+		{
+			"type": "proof",
+			"id": 1,
+			"parts": 3
+		},
+		{
+			"type": "proof",
+			"id": 2,
+			"parts": 3
+		},
+		{
+			"type": "proof",
+			"id": 3,
+			"parts": 2
+		},
+		{
+			"type": "proof",
+			"id": 4,
+			"parts": 5
+		},
+		{
+			"type": "proof",
+			"id": 5,
+			"parts": 2
+		},
+		{
+			"type": "proof",
+			"id": 6,
+			"parts": 1
+		},
+		{
+			"type": "proof",
+			"id": 7,
+			"parts": 2
+		},
+		{
+			"type": "proof",
+			"id": 8,
+			"parts": 4
+		},
+		{
+			"type": "proof",
+			"id": 9,
+			"parts": 1
+		},
+		{
+			"type": "proof",
+			"id": 10,
+			"parts": 1,
+			"comment": "Just a duplicate of 9 (looks like theorem 10 will not be in the test)"
+		},
+		{
+			"type": "proof",
+			"id": 11,
+			"parts": 2
+		},
+		{
+			"type": "proof",
+			"id": 12,
+			"parts": 4
+		},
+		{
+			"type": "proof",
+			"id": 13,
+			"parts": 2
+		},
+		{
+			"type": "proof",
+			"id": 14,
+			"parts": 2
+		},
+		{
+			"type": "proof",
+			"id": 15,
+			"parts": 3
+		},
+		{
+			"type": "proof",
+			"id": 16,
+			"parts": 2
+		}
+	]
+}
