@@ -28,11 +28,7 @@ function getRandomAnswer()
 		}
 	}
 
-	if (mode == "proof") {
-		return "<img src=\"images/" + questions[chosen].id + "-" + randomNumBetween(1, questions[chosen].parts) + ".png\">";
-	}
-
-	return questions[chosen].a;
+	return "<img src=\"images/" + questions[chosen].id + "-" + randomNumBetween(1, questions[chosen].parts) + ".png\">";
 }
 
 function loadQuestion()
@@ -44,11 +40,7 @@ function loadQuestion()
 	for (var i = 0; i < options.length; i++) {
 		if (i == correctIndex) {
 			var content = "";
-			if (mode == "proof") {
-				content = "<img src=\"images/" + questions[currentQuestionIndex].id + "-" + partInQuestion + ".png\">";
-			} else {
-				content = questions[currentQuestionIndex].a;
-			}
+			content = "<img src=\"images/" + questions[currentQuestionIndex].id + "-" + partInQuestion + ".png\">";
 
 			document.getElementById(options[i]).innerHTML = content;
 		} else {
@@ -57,20 +49,13 @@ function loadQuestion()
 	}
 }
 
-function practice(what)
+function practice()
 {
 	score = 0;
 	fails = 0;
 	renderScoreAndFails();
-	mode = what;
 
-	questions = originalQuestions.filter((q) => {
-		if (q.type == undefined && mode == "theorem") {
-			return true;
-		}
-
-		return q.type === mode;
-	});
+	questions = originalQuestions;
 
 	selectRandomQuestion();
 
@@ -87,6 +72,11 @@ function renderScoreAndFails()
 
 function selectRandomQuestion()
 {
+	if (location.search.startsWith("?")) {
+		currentQuestionIndex = parseInt(location.search.split("?")[1]) - 1;
+		return;
+	}
+
 	currentQuestionIndex = randomNumBetween(0, questions.length);
 }
 
@@ -128,7 +118,7 @@ window.onload = function ()
 	req.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			loadQuiz(req.responseText);
-			practice("proof");
+			practice();
 		}
 	};
 
