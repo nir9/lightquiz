@@ -28,7 +28,18 @@ function getRandomAnswer()
 		}
 	}
 
-	return "<img src=\"images/" + questions[chosen].id + "-" + randomNumBetween(1, questions[chosen].parts) + ".png\">";
+	var isSinglePart = questions[chosen].parts == 1;
+	var partToUse = randomNumBetween(isSinglePart ? 1 : 2, questions[chosen].parts);
+
+	if (partInQuestion == 1) {
+		partToUse = 1;
+	}
+
+	if (partInQuestion == questions[currentQuestionIndex].parts) {
+		partToUse = questions[chosen].parts;
+	}
+
+	return "<img src=\"images/" + questions[chosen].id + "-" + partToUse + ".png\">";
 }
 
 function loadQuestion()
