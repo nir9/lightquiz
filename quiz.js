@@ -53,12 +53,11 @@ function practice()
 {
 	score = 0;
 	fails = 0;
-	renderScoreAndFails();
 
 	questions = originalQuestions;
 
 	selectRandomQuestion();
-
+	renderScoreAndFails();
 	loadQuestion();
 }
 
