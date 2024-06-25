@@ -19,14 +19,7 @@ function randomNumBetween(start, end)
 
 function getRandomAnswer()
 {
-	var chosen = 0;
-
-	while (true) {
-		chosen = randomNumBetween(0, questions.length);
-		if (chosen != currentQuestionIndex) {
-			break;
-		}
-	}
+	var chosen = randomNumBetween(0, questions.length);
 
 	var isSinglePart = questions[chosen].parts == 1;
 	var partToUse = randomNumBetween(isSinglePart ? 1 : 2, questions[chosen].parts);
@@ -37,6 +30,10 @@ function getRandomAnswer()
 
 	if (partInQuestion == questions[currentQuestionIndex].parts) {
 		partToUse = questions[chosen].parts;
+	}
+
+	while (chosen == currentQuestionIndex && partToUse == partInQuestion) {
+		partToUse = randomNumBetween(1, questions[chosen].parts);
 	}
 
 	return "<img src=\"images/" + questions[chosen].id + "-" + partToUse + ".png\">";
