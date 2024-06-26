@@ -39,10 +39,22 @@ function getRandomAnswer()
 		if (chosen == currentQuestionIndex) {
 			chosen = 2;
 		}
+
+		partToUse = 1;
 	}
 
+	var iterations = 1;
 	while (chosen == currentQuestionIndex && partToUse == partInQuestion) {
 		partToUse = randomNumBetween(1, questions[chosen].parts);
+		iterations++;
+		if (iterations > 10) {
+			break;
+		}
+	}
+
+	if (iterations > 10) {
+		console.error("An error has occurred", chosen, currentQuestionIndex, partToUse, partInQuestion);
+		alert("An error has occurred when choosing a random answer, please report this bug to Nir, checkout F12 dev console for more details");
 	}
 
 	return "<img src=\"images/" + questions[chosen].id + "-" + partToUse + ".png\">";
