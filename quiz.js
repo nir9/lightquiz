@@ -22,7 +22,7 @@ function getRandomAnswer()
 	var chosen = randomNumBetween(0, questions.length);
 
 	var isSinglePart = questions[chosen].parts == 1;
-	var partToUse = randomNumBetween(isSinglePart ? 1 : 2, questions[chosen].parts);
+	var partToUse = randomNumBetween(isSinglePart ? 1 : 2, questions[chosen].parts + 1);
 
 	if (partInQuestion == 1) {
 		partToUse = 1;
@@ -32,7 +32,9 @@ function getRandomAnswer()
 		partToUse = questions[chosen].parts;
 	}
 
-	if (chosen == currentQuestionIndex && partToUse == partInQuestion && questions[chosen].parts == 1) {
+	if ((chosen == currentQuestionIndex) && (partToUse == partInQuestion) && (questions[chosen].parts == 1)) {
+		console.log("fixing");
+
 		// Avoid infinite loop
 		chosen = 1;
 
@@ -45,7 +47,7 @@ function getRandomAnswer()
 
 	var iterations = 1;
 	while (chosen == currentQuestionIndex && partToUse == partInQuestion) {
-		partToUse = randomNumBetween(1, questions[chosen].parts);
+		partToUse = randomNumBetween(1, questions[chosen].parts + 1);
 		iterations++;
 		if (iterations > 10) {
 			break;
