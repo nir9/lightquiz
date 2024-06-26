@@ -32,6 +32,15 @@ function getRandomAnswer()
 		partToUse = questions[chosen].parts;
 	}
 
+	if (chosen == currentQuestionIndex && partToUse == partInQuestion && questions[chosen].parts == 1) {
+		// Avoid infinite loop
+		chosen = 1;
+
+		if (chosen == currentQuestionIndex) {
+			chosen = 2;
+		}
+	}
+
 	while (chosen == currentQuestionIndex && partToUse == partInQuestion) {
 		partToUse = randomNumBetween(1, questions[chosen].parts);
 	}
