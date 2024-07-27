@@ -110,12 +110,14 @@ function selectRandomQuestion()
 	currentQuestionIndex = randomNumBetween(0, questions.length);
 }
 
-function answer(num)
+function answer(selectedIndex)
 {
+	var isCorrect = selectedIndex === correctIndex;
+
 	document.getElementById("splash").style.visibility = "visible";
 	document.getElementById("splash").style.opacity = "0.9";
 
-	if (num == correctIndex) {
+	if (isCorrect) {
 		if (partInQuestion < questions[currentQuestionIndex].parts) {
 			partInQuestion++;
 		} else {
@@ -139,7 +141,7 @@ function answer(num)
 	setTimeout(function () {
 		document.getElementById("splash").style.opacity = "0";
 		document.getElementById("splash").style.visibility = "hidden";
-	}, 700);
+	}, isCorrect ? 200 : 1000);
 }
 
 window.onload = function ()
